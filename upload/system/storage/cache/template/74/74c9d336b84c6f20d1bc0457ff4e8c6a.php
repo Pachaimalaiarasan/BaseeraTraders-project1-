@@ -225,6 +225,6 @@ Please donate via PayPal to donate@opencart.com
 
     public function getSourceContext()
     {
-        return new Source("", "catalog/view/template/common/footer.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\catalog\\view\\template\\common\\footer.twig");
+        return new Source("", "catalog/view/template/common/footer.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\catalog\\view\\template\\common\\footer.twig");
     }
 }

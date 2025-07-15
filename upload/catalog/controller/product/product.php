@@ -1,15 +1,19 @@
 <?php
+
 namespace Opencart\Catalog\Controller\Product;
+
 /**
  * Class Product
  *
  * @package Opencart\Catalog\Controller\Product
  */
-class Product extends \Opencart\System\Engine\Controller {
+class Product extends \Opencart\System\Engine\Controller
+{
 	/**
 	 * @return void
 	 */
-	public function index(): \Opencart\System\Engine\Action|null {
+	public function index(): \Opencart\System\Engine\Action|null
+	{
 		$this->load->language('product/product');
 
 		if (isset($this->request->get['product_id'])) {
@@ -433,11 +437,22 @@ class Product extends \Opencart\System\Engine\Controller {
 				];
 			}
 
-			if ($product_info['minimum']) {
-				$data['minimum'] = $product_info['minimum'];
-			} else {
-				$data['minimum'] = 1;
+			// if ($product_info['minimum']) {
+			// 	$data['minimum'] = $product_info['minimum'];
+			// } else {
+			// 	$data['minimum'] = 1;
+			// }
+
+			// Set default minimum quantity
+			$minimum_quantity = $product_info['minimum'] ? $product_info['minimum'] : 1;
+
+			// Check if customer is logged in and belongs to retailer group (ID 2)
+			if ($this->customer->isLogged() && $this->customer->getGroupId() == 2) {
+				$minimum_quantity = max(10, $minimum_quantity); // Force minimum 10 for retailer group
 			}
+
+			$data['minimum'] = $minimum_quantity;
+
 
 			$data['share'] = $this->url->link('product/product', 'language=' . $this->config->get('config_language') . '&product_id=' . (int)$this->request->get['product_id']);
 

@@ -74,6 +74,6 @@ class __TwigTemplate_4fa56af997abc51bd080a978033b61e7 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "catalog/view/template/common/column_right.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\catalog\\view\\template\\common\\column_right.twig");
+        return new Source("", "catalog/view/template/common/column_right.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\catalog\\view\\template\\common\\column_right.twig");
     }
 }

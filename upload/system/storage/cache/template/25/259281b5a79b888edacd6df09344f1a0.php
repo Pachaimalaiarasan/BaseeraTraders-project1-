@@ -151,6 +151,6 @@ class __TwigTemplate_f367db891bf3ae20798a9c4654648955 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "extension/opencart/admin/view/template/dashboard/chart_info.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\extension\\opencart\\admin\\view\\template\\dashboard\\chart_info.twig");
+        return new Source("", "extension/opencart/admin/view/template/dashboard/chart_info.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\extension\\opencart\\admin\\view\\template\\dashboard\\chart_info.twig");
     }
 }

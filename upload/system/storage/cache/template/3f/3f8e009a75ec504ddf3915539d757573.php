@@ -125,6 +125,6 @@ class __TwigTemplate_00965d82a4ac4a30db7ae4d42108eaf7 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "catalog/view/template/common/currency.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\catalog\\view\\template\\common\\currency.twig");
+        return new Source("", "catalog/view/template/common/currency.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\catalog\\view\\template\\common\\currency.twig");
     }
 }

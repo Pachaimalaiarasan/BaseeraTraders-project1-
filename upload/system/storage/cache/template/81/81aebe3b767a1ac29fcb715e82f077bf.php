@@ -111,6 +111,6 @@ class __TwigTemplate_649fdb83e1b05a62fc6262f3aa81d1a3 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "catalog/view/template/error/not_found.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\catalog\\view\\template\\error\\not_found.twig");
+        return new Source("", "catalog/view/template/error/not_found.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\catalog\\view\\template\\error\\not_found.twig");
     }
 }

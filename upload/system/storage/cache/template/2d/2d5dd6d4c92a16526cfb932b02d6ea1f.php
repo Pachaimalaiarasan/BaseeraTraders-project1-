@@ -205,6 +205,6 @@ class __TwigTemplate_a1e9d9047783d9232f2e9d2df77cfad3 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "catalog/view/template/product/review.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\catalog\\view\\template\\product\\review.twig");
+        return new Source("", "catalog/view/template/product/review.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\catalog\\view\\template\\product\\review.twig");
     }
 }

@@ -1,15 +1,19 @@
 <?php
+
 namespace Opencart\Catalog\Controller\Checkout;
+
 /**
  * Class Cart
  *
  * @package Opencart\Catalog\Controller\Checkout
  */
-class Cart extends \Opencart\System\Engine\Controller {
+class Cart extends \Opencart\System\Engine\Controller
+{
 	/**
 	 * @return void
 	 */
-	public function index(): void {
+	public function index(): void
+	{
 		$this->load->language('checkout/cart');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -66,7 +70,7 @@ class Cart extends \Opencart\System\Engine\Controller {
 			$extensions = $this->model_setting_extension->getExtensionsByType('total');
 
 			foreach ($extensions as $extension) {
-				 $result = $this->load->controller('extension/' . $extension['extension'] . '/total/' . $extension['code']);
+				$result = $this->load->controller('extension/' . $extension['extension'] . '/total/' . $extension['code']);
 
 				if (!$result instanceof \Exception) {
 					$data['modules'][] = $result;
@@ -105,7 +109,8 @@ class Cart extends \Opencart\System\Engine\Controller {
 	/**
 	 * @return void
 	 */
-	public function list(): void {
+	public function list(): void
+	{
 		$this->load->language('checkout/cart');
 
 		$this->response->setOutput($this->getList());
@@ -114,7 +119,8 @@ class Cart extends \Opencart\System\Engine\Controller {
 	/**
 	 * @return string
 	 */
-	public function getList(): string {
+	public function getList(): string
+	{
 		$data['list'] = $this->url->link(' ', 'language=' . $this->config->get('config_language'));
 		$data['product_edit'] = $this->url->link('checkout/cart.edit', 'language=' . $this->config->get('config_language'));
 		$data['product_remove'] = $this->url->link('checkout/cart.remove', 'language=' . $this->config->get('config_language'));
@@ -226,7 +232,8 @@ class Cart extends \Opencart\System\Engine\Controller {
 	/**
 	 * @return void
 	 */
-	public function add(): void {
+	public function add(): void
+	{
 		$this->load->language('checkout/cart');
 
 		$json = [];
@@ -237,11 +244,29 @@ class Cart extends \Opencart\System\Engine\Controller {
 			$product_id = 0;
 		}
 
+		// if (isset($this->request->post['quantity'])) {
+		// 	$quantity = (int)$this->request->post['quantity'];
+		// } else {
+		// 	$quantity = 1;
+		// }
+
 		if (isset($this->request->post['quantity'])) {
 			$quantity = (int)$this->request->post['quantity'];
 		} else {
 			$quantity = 1;
 		}
+
+		// Get product info
+		$this->load->model('catalog/product');
+		$product_info = $this->model_catalog_product->getProduct($this->request->post['product_id']);
+
+		// Check customer group and enforce minimum 10 for retailers
+		if ($this->customer->isLogged() && $this->customer->getGroupId() == 2) {
+			if ($quantity < 10) {
+				$json['error']['warning'] = 'Minimum quantity for retailer customers is 10.';
+			}
+		}
+
 
 		if (isset($this->request->post['option'])) {
 			$option = array_filter($this->request->post['option']);
@@ -327,7 +352,8 @@ class Cart extends \Opencart\System\Engine\Controller {
 	/**
 	 * @return void
 	 */
-	public function edit(): void {
+	public function edit(): void
+	{
 		$this->load->language('checkout/cart');
 
 		$json = [];
@@ -372,7 +398,8 @@ class Cart extends \Opencart\System\Engine\Controller {
 	/**
 	 * @return void
 	 */
-	public function remove(): void {
+	public function remove(): void
+	{
 		$this->load->language('checkout/cart');
 
 		$json = [];

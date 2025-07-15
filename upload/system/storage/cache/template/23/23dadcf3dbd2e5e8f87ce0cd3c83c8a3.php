@@ -283,6 +283,6 @@ $context["product"], "quantity", [], "any", false, false, false, 39) <= 5)) {
 
     public function getSourceContext()
     {
-        return new Source("", "admin/view/template/catalog/product_list.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\admin\\view\\template\\catalog\\product_list.twig");
+        return new Source("", "admin/view/template/catalog/product_list.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\admin\\view\\template\\catalog\\product_list.twig");
     }
 }

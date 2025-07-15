@@ -3,10 +3,13 @@
 define('APPLICATION', 'Catalog');
 
 // HTTP
-define('HTTP_SERVER', 'http://localhost/MyOpenCart/Demo/upload/');
+define('HTTP_SERVER', 'http://localhost/BaseeraTraders/BaseeraTraders-project1-/upload/');
+// define('HTTP_SERVER', 'http://localhost/MyOpenCart/Demo/upload/');
 
 // DIR
-define('DIR_OPENCART', 'C:/xampp/htdocs/MyOpenCart/Demo/upload/');
+
+// define('DIR_OPENCART', 'C:/xampp/htdocs/MyOpenCart/Demo/upload/');
+define('DIR_OPENCART',  'C:/xampp/htdocs/BaseeraTraders/BaseeraTraders-project1-/upload/');
 define('DIR_APPLICATION', DIR_OPENCART . 'catalog/');
 define('DIR_EXTENSION', DIR_OPENCART . 'extension/');
 define('DIR_IMAGE', DIR_OPENCART . 'image/');

@@ -123,6 +123,6 @@ class __TwigTemplate_8e19c629b0228c3d9262095fc14d5e49 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "extension/opencart/catalog/view/template/module/category.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\extension\\opencart\\catalog\\view\\template\\module\\category.twig");
+        return new Source("", "extension/opencart/catalog/view/template/module/category.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\extension\\opencart\\catalog\\view\\template\\module\\category.twig");
     }
 }

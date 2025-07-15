@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="{{ direction }}" lang="{{ lang }}">
+<html class="html" dir="{{ direction }}" lang="{{ lang }}">
 
 <head>
   <meta charset="UTF-8" />
@@ -40,77 +40,143 @@
   {{ analytic }}
   {% endfor %}
   <style>
-    /* Align toggle to top-right */
-    .nav-toggle-container {
-      display: flex;
-      justify-content: flex-end;
-      padding: 0.5rem 1rem;
-      position: relative;
-    }
+/* Align toggle to top-right */
+.nav-toggle-container {
+  display: flex;
+  padding: 0.5rem 1rem;
+  position: relative;
+  flex-flow: row-reverse;
+  z-index: 1001;
+}
 
-    .dropdown-toggle-custom {
-      background: none;
-      border: none;
-      font-size: 14px;
-      font-weight: 600;
-      color: #444;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+.dropdown-toggle-custom {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  transition: background 0.3s ease;
+  border-radius: 6px;
+}
 
-    /* Dropdown Menu Styling */
-    .custom-dropdown-nav {
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: 1rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      min-width: 220px;
-      padding: 8px 0;
-      z-index: 1000;
-    }
+.dropdown-toggle-custom:focus,
+.dropdown-toggle-custom:hover {
+  background-color: #f0f0f0;
+}
 
-    .custom-dropdown-nav.show {
-      display: block;
-    }
+/* Dropdown Menu Styling */
+.custom-dropdown-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  min-width: 220px;
+  padding: 8px 0;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
 
-    .dropdown-item-custom {
-      padding: 10px 18px;
-      font-size: 14px;
-      color: #333;
-      white-space: nowrap;
-    }
+.custom-dropdown-nav.show {
+  display: block;
+  transform: translateY(10px);
+  opacity: 1;
+  pointer-events: auto;
+}
 
-    .dropdown-item-custom:hover {
-      background-color: #f7f7f7;
-    }
+.dropdown-item-custom {
+  padding: 10px 18px;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
 
-    .dropdown-item-custom a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
+.dropdown-item-custom:hover {
+  background-color: #f7f7f7;
+}
 
-    /* Responsive Improvements */
-    @media (max-width: 768px) {
-      .custom-dropdown-nav {
-        right: 0.5rem;
-        min-width: 180px;
-      }
+.dropdown-item-custom a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 
-      .dropdown-toggle-custom {
-        font-size: 13px;
-      }
+/* Utility */
+.top-all {
+  display: flex;
+  justify-content: space-between;
+}
 
-      .dropdown-item-custom {
-        padding: 10px 14px;
-        font-size: 13px;
-      }
-    }
+#navToggleBtn {
+  min-width: fit-content;
+  padding: 20px;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+  .custom-dropdown-nav {
+    right: 0.5rem;
+    min-width: 180px;
+    border-radius: 10px;
+  }
+
+  .dropdown-toggle-custom {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .dropdown-item-custom {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  #navToggleBtn {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-dropdown-nav {
+    right: 0.25rem;
+    min-width: 160px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .dropdown-toggle-custom {
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .dropdown-item-custom {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+@media screen and (max-width:576px) {
+
+  .top-all {
+    display: block;
+  }
+
+  .nav-toggle-container{
+    flex-flow: row;
+    justify-content: space-between;
+  }
+  
+}
+
+
   </style>
 </head>
 
@@ -120,50 +186,18 @@
       <!-- Dropdown Menu -->
       <nav id="top">
         <div class="container position-relative">
-          <div id="navDropdown" class="custom-dropdown-nav">
-            <ul class="list-unstyled mb-0">
-              <li class="dropdown-item-custom">{{ currency }}</li>
-              <li class="dropdown-item-custom">{{ language }}</li>
-              <li class="dropdown-item-custom">
-                <a href="{{ contact }}"><i class="fa-solid fa-phone"></i> {{ telephone }}</a>
-              </li>
-              <li class="dropdown-item-custom">
-                <a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}">
-                  <i class="fa-solid fa-heart"></i> {{ text_wishlist }}
-                </a>
-              </li>
-              <li class="dropdown-item-custom">
-                <a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}">
-                  <i class="fa-solid fa-cart-shopping"></i> {{ text_shopping_cart }}
-                </a>
-              </li>
-              <li class="dropdown-item-custom">
-                <a href="{{ checkout }}" title="{{ text_checkout }}">
-                  <i class="fa-solid fa-share"></i> {{ text_checkout }}
-                </a>
-              </li>
-    
-              <li class="dropdown-item-custom"><strong>{{ text_account }}</strong></li>
-    
-              {% if not logged %}
-              <li class="dropdown-item-custom"><a href="{{ register }}">{{ text_register }}</a></li>
-              <li class="dropdown-item-custom"><a href="{{ login }}">{{ text_login }}</a></li>
-              {% else %}
-              <li class="dropdown-item-custom"><a href="{{ account }}">{{ text_account }}</a></li>
-              <li class="dropdown-item-custom"><a href="{{ order }}">{{ text_order }}</a></li>
-              <li class="dropdown-item-custom"><a href="{{ transaction }}">{{ text_transaction }}</a></li>
-              <li class="dropdown-item-custom"><a href="{{ download }}">{{ text_download }}</a></li>
-              <li class="dropdown-item-custom"><a href="{{ logout }}">{{ text_logout }}</a></li>
-              {% endif %}
-            </ul>
-          </div>
+         
         </div>
       </nav>
     
       <!-- HEADER -->
       <header>
         <div class="container py-3">
+          
+          
+          
           <div class="row align-items-center">
+            <div class="top-all">
             <div class="col-md-3 col-lg-4">
               <div id="logo">
                 {% if logo %}
@@ -177,24 +211,67 @@
               </div>
             </div>
             <div class="col-md-5">{{ search }}</div>
-            <div id="header-cart" class="col-md-4 col-lg-3 mb-2">{{ cart }}</div>
 
             <!-- Toggle Button (Aligned to Right) -->
-  <div class="nav-toggle-container">
-    <button id="navToggleBtn" class="dropdown-toggle-custom">
-      <i class="fa-solid fa-user"></i>
-      <span class="d-none d-md-inline">My Menu</span>
-      <i class="fa-solid fa-caret-down"></i>
-    </button>
-  </div>
+            <div class="account-other">
+
+              <div class="nav-toggle-container">
+                <div id="header-cart" class="col-md-4 col-lg-3 mb-2">{{ cart }}</div>
+                <button id="navToggleBtn" class="dropdown-toggle-custom">
+                  <i class="fa-solid fa-user"></i>
+                  <span class="d-none d-md-inline">My Menu</span>
+                  <i class="fa-solid fa-caret-down"></i>
+                </button>
+                <div id="navDropdown" class="custom-dropdown-nav">
+                  <ul class="list-unstyled mb-0">
+                    <li class="dropdown-item-custom">{{ currency }}</li>
+                    <li class="dropdown-item-custom">{{ language }}</li>
+                    <li class="dropdown-item-custom">
+                      <a href="{{ contact }}"><i class="fa-solid fa-phone"></i> {{ telephone }}</a>
+                    </li>
+                    <li class="dropdown-item-custom">
+                      <a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}">
+                        <i class="fa-solid fa-heart"></i> {{ text_wishlist }}
+                      </a>
+                    </li>
+                    <li class="dropdown-item-custom">
+                      <a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}">
+                        <i class="fa-solid fa-cart-shopping"></i> {{ text_shopping_cart }}
+                      </a>
+                    </li>
+                    <li class="dropdown-item-custom">
+                      <a href="{{ checkout }}" title="{{ text_checkout }}">
+                        <i class="fa-solid fa-share"></i> {{ text_checkout }}
+                      </a>
+                    </li>
+          
+                    <li class="dropdown-item-custom"><strong>{{ text_account }}</strong></li>
+          
+                    {% if not logged %}
+                    <li class="dropdown-item-custom"><a href="{{ register }}">{{ text_register }}</a></li>
+                    <li class="dropdown-item-custom"><a href="{{ login }}">{{ text_login }}</a></li>
+                    {% else %}
+                    <li class="dropdown-item-custom"><a href="{{ account }}">{{ text_account }}</a></li>
+                    <li class="dropdown-item-custom"><a href="{{ order }}">{{ text_order }}</a></li>
+                    <li class="dropdown-item-custom"><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+                    <li class="dropdown-item-custom"><a href="{{ download }}">{{ text_download }}</a></li>
+                    <li class="dropdown-item-custom"><a href="{{ logout }}">{{ text_logout }}</a></li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+              
+            </div>
           </div>
-    
+          </div>
         </div>
       </header>
     
       <!-- MAIN -->
-      <main>
+      <main class="main">
         {{ menu }}
+
+
     
       <!-- Script for Dropdown -->
       <script>
@@ -212,5 +289,7 @@
           }
         });
       </script>
+
+
     
     

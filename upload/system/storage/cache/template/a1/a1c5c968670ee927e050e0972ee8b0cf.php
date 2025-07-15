@@ -587,6 +587,6 @@ var editor = [];
 
     public function getSourceContext()
     {
-        return new Source("", "admin/view/template/design/theme.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\admin\\view\\template\\design\\theme.twig");
+        return new Source("", "admin/view/template/design/theme.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\admin\\view\\template\\design\\theme.twig");
     }
 }

@@ -155,6 +155,6 @@ class __TwigTemplate_c5b4593d011a4eeb8d95ac07124fcab2 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "admin/view/template/design/banner_list.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\admin\\view\\template\\design\\banner_list.twig");
+        return new Source("", "admin/view/template/design/banner_list.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\admin\\view\\template\\design\\banner_list.twig");
     }
 }

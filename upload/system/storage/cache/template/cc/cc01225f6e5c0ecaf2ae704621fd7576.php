@@ -35,7 +35,7 @@ class __TwigTemplate_d83107e89fdca349e26a277f5ba0413f extends Template
         $macros = $this->macros;
         // line 1
         echo "<!DOCTYPE html>
-<html dir=\"";
+<html class=\"html\" dir=\"";
         // line 2
         echo ($context["direction"] ?? null);
         echo "\" lang=\"";
@@ -163,77 +163,143 @@ class __TwigTemplate_d83107e89fdca349e26a277f5ba0413f extends Template
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 42
         echo "  <style>
-    /* Align toggle to top-right */
-    .nav-toggle-container {
-      display: flex;
-      justify-content: flex-end;
-      padding: 0.5rem 1rem;
-      position: relative;
-    }
+/* Align toggle to top-right */
+.nav-toggle-container {
+  display: flex;
+  padding: 0.5rem 1rem;
+  position: relative;
+  flex-flow: row-reverse;
+  z-index: 1001;
+}
 
-    .dropdown-toggle-custom {
-      background: none;
-      border: none;
-      font-size: 14px;
-      font-weight: 600;
-      color: #444;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+.dropdown-toggle-custom {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  transition: background 0.3s ease;
+  border-radius: 6px;
+}
 
-    /* Dropdown Menu Styling */
-    .custom-dropdown-nav {
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: 1rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      min-width: 220px;
-      padding: 8px 0;
-      z-index: 1000;
-    }
+.dropdown-toggle-custom:focus,
+.dropdown-toggle-custom:hover {
+  background-color: #f0f0f0;
+}
 
-    .custom-dropdown-nav.show {
-      display: block;
-    }
+/* Dropdown Menu Styling */
+.custom-dropdown-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  min-width: 220px;
+  padding: 8px 0;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
 
-    .dropdown-item-custom {
-      padding: 10px 18px;
-      font-size: 14px;
-      color: #333;
-      white-space: nowrap;
-    }
+.custom-dropdown-nav.show {
+  display: block;
+  transform: translateY(10px);
+  opacity: 1;
+  pointer-events: auto;
+}
 
-    .dropdown-item-custom:hover {
-      background-color: #f7f7f7;
-    }
+.dropdown-item-custom {
+  padding: 10px 18px;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
 
-    .dropdown-item-custom a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
+.dropdown-item-custom:hover {
+  background-color: #f7f7f7;
+}
 
-    /* Responsive Improvements */
-    @media (max-width: 768px) {
-      .custom-dropdown-nav {
-        right: 0.5rem;
-        min-width: 180px;
-      }
+.dropdown-item-custom a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 
-      .dropdown-toggle-custom {
-        font-size: 13px;
-      }
+/* Utility */
+.top-all {
+  display: flex;
+  justify-content: space-between;
+}
 
-      .dropdown-item-custom {
-        padding: 10px 14px;
-        font-size: 13px;
-      }
-    }
+#navToggleBtn {
+  min-width: fit-content;
+  padding: 20px;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+  .custom-dropdown-nav {
+    right: 0.5rem;
+    min-width: 180px;
+    border-radius: 10px;
+  }
+
+  .dropdown-toggle-custom {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .dropdown-item-custom {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  #navToggleBtn {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-dropdown-nav {
+    right: 0.25rem;
+    min-width: 160px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .dropdown-toggle-custom {
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .dropdown-item-custom {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+@media screen and (max-width:576px) {
+
+  .top-all {
+    display: block;
+  }
+
+  .nav-toggle-container{
+    flex-flow: row;
+    justify-content: space-between;
+  }
+  
+}
+
+
   </style>
 </head>
 
@@ -243,140 +309,30 @@ class __TwigTemplate_d83107e89fdca349e26a277f5ba0413f extends Template
       <!-- Dropdown Menu -->
       <nav id=\"top\">
         <div class=\"container position-relative\">
-          <div id=\"navDropdown\" class=\"custom-dropdown-nav\">
-            <ul class=\"list-unstyled mb-0\">
-              <li class=\"dropdown-item-custom\">";
-        // line 125
-        echo ($context["currency"] ?? null);
-        echo "</li>
-              <li class=\"dropdown-item-custom\">";
-        // line 126
-        echo ($context["language"] ?? null);
-        echo "</li>
-              <li class=\"dropdown-item-custom\">
-                <a href=\"";
-        // line 128
-        echo ($context["contact"] ?? null);
-        echo "\"><i class=\"fa-solid fa-phone\"></i> ";
-        echo ($context["telephone"] ?? null);
-        echo "</a>
-              </li>
-              <li class=\"dropdown-item-custom\">
-                <a href=\"";
-        // line 131
-        echo ($context["wishlist"] ?? null);
-        echo "\" id=\"wishlist-total\" title=\"";
-        echo ($context["text_wishlist"] ?? null);
-        echo "\">
-                  <i class=\"fa-solid fa-heart\"></i> ";
-        // line 132
-        echo ($context["text_wishlist"] ?? null);
-        echo "
-                </a>
-              </li>
-              <li class=\"dropdown-item-custom\">
-                <a href=\"";
-        // line 136
-        echo ($context["shopping_cart"] ?? null);
-        echo "\" title=\"";
-        echo ($context["text_shopping_cart"] ?? null);
-        echo "\">
-                  <i class=\"fa-solid fa-cart-shopping\"></i> ";
-        // line 137
-        echo ($context["text_shopping_cart"] ?? null);
-        echo "
-                </a>
-              </li>
-              <li class=\"dropdown-item-custom\">
-                <a href=\"";
-        // line 141
-        echo ($context["checkout"] ?? null);
-        echo "\" title=\"";
-        echo ($context["text_checkout"] ?? null);
-        echo "\">
-                  <i class=\"fa-solid fa-share\"></i> ";
-        // line 142
-        echo ($context["text_checkout"] ?? null);
-        echo "
-                </a>
-              </li>
-    
-              <li class=\"dropdown-item-custom\"><strong>";
-        // line 146
-        echo ($context["text_account"] ?? null);
-        echo "</strong></li>
-    
-              ";
-        // line 148
-        if ( !($context["logged"] ?? null)) {
-            // line 149
-            echo "              <li class=\"dropdown-item-custom\"><a href=\"";
-            echo ($context["register"] ?? null);
-            echo "\">";
-            echo ($context["text_register"] ?? null);
-            echo "</a></li>
-              <li class=\"dropdown-item-custom\"><a href=\"";
-            // line 150
-            echo ($context["login"] ?? null);
-            echo "\">";
-            echo ($context["text_login"] ?? null);
-            echo "</a></li>
-              ";
-        } else {
-            // line 152
-            echo "              <li class=\"dropdown-item-custom\"><a href=\"";
-            echo ($context["account"] ?? null);
-            echo "\">";
-            echo ($context["text_account"] ?? null);
-            echo "</a></li>
-              <li class=\"dropdown-item-custom\"><a href=\"";
-            // line 153
-            echo ($context["order"] ?? null);
-            echo "\">";
-            echo ($context["text_order"] ?? null);
-            echo "</a></li>
-              <li class=\"dropdown-item-custom\"><a href=\"";
-            // line 154
-            echo ($context["transaction"] ?? null);
-            echo "\">";
-            echo ($context["text_transaction"] ?? null);
-            echo "</a></li>
-              <li class=\"dropdown-item-custom\"><a href=\"";
-            // line 155
-            echo ($context["download"] ?? null);
-            echo "\">";
-            echo ($context["text_download"] ?? null);
-            echo "</a></li>
-              <li class=\"dropdown-item-custom\"><a href=\"";
-            // line 156
-            echo ($context["logout"] ?? null);
-            echo "\">";
-            echo ($context["text_logout"] ?? null);
-            echo "</a></li>
-              ";
-        }
-        // line 158
-        echo "            </ul>
-          </div>
+         
         </div>
       </nav>
     
       <!-- HEADER -->
       <header>
         <div class=\"container py-3\">
+          
+          
+          
           <div class=\"row align-items-center\">
+            <div class=\"top-all\">
             <div class=\"col-md-3 col-lg-4\">
               <div id=\"logo\">
                 ";
-        // line 169
+        // line 203
         if (($context["logo"] ?? null)) {
-            // line 170
+            // line 204
             echo "                <a href=\"";
             echo ($context["home"] ?? null);
             echo "\">
                   <h2>BASEERA TRADERS</h2>
                   <!-- <img src=\"";
-            // line 172
+            // line 206
             echo ($context["logo"] ?? null);
             echo "\" title=\"";
             echo ($context["name"] ?? null);
@@ -386,7 +342,7 @@ class __TwigTemplate_d83107e89fdca349e26a277f5ba0413f extends Template
                 </a>
                 ";
         } else {
-            // line 175
+            // line 209
             echo "                <h1><a href=\"";
             echo ($context["home"] ?? null);
             echo "\">";
@@ -394,37 +350,158 @@ class __TwigTemplate_d83107e89fdca349e26a277f5ba0413f extends Template
             echo "</a></h1>
                 ";
         }
-        // line 177
+        // line 211
         echo "              </div>
             </div>
             <div class=\"col-md-5\">";
-        // line 179
+        // line 213
         echo ($context["search"] ?? null);
-        echo "</div>
-            <div id=\"header-cart\" class=\"col-md-4 col-lg-3 mb-2\">";
-        // line 180
-        echo ($context["cart"] ?? null);
         echo "</div>
 
             <!-- Toggle Button (Aligned to Right) -->
-  <div class=\"nav-toggle-container\">
-    <button id=\"navToggleBtn\" class=\"dropdown-toggle-custom\">
-      <i class=\"fa-solid fa-user\"></i>
-      <span class=\"d-none d-md-inline\">My Menu</span>
-      <i class=\"fa-solid fa-caret-down\"></i>
-    </button>
-  </div>
+            <div class=\"account-other\">
+
+              <div class=\"nav-toggle-container\">
+                <div id=\"header-cart\" class=\"col-md-4 col-lg-3 mb-2\">";
+        // line 219
+        echo ($context["cart"] ?? null);
+        echo "</div>
+                <button id=\"navToggleBtn\" class=\"dropdown-toggle-custom\">
+                  <i class=\"fa-solid fa-user\"></i>
+                  <span class=\"d-none d-md-inline\">My Menu</span>
+                  <i class=\"fa-solid fa-caret-down\"></i>
+                </button>
+                <div id=\"navDropdown\" class=\"custom-dropdown-nav\">
+                  <ul class=\"list-unstyled mb-0\">
+                    <li class=\"dropdown-item-custom\">";
+        // line 227
+        echo ($context["currency"] ?? null);
+        echo "</li>
+                    <li class=\"dropdown-item-custom\">";
+        // line 228
+        echo ($context["language"] ?? null);
+        echo "</li>
+                    <li class=\"dropdown-item-custom\">
+                      <a href=\"";
+        // line 230
+        echo ($context["contact"] ?? null);
+        echo "\"><i class=\"fa-solid fa-phone\"></i> ";
+        echo ($context["telephone"] ?? null);
+        echo "</a>
+                    </li>
+                    <li class=\"dropdown-item-custom\">
+                      <a href=\"";
+        // line 233
+        echo ($context["wishlist"] ?? null);
+        echo "\" id=\"wishlist-total\" title=\"";
+        echo ($context["text_wishlist"] ?? null);
+        echo "\">
+                        <i class=\"fa-solid fa-heart\"></i> ";
+        // line 234
+        echo ($context["text_wishlist"] ?? null);
+        echo "
+                      </a>
+                    </li>
+                    <li class=\"dropdown-item-custom\">
+                      <a href=\"";
+        // line 238
+        echo ($context["shopping_cart"] ?? null);
+        echo "\" title=\"";
+        echo ($context["text_shopping_cart"] ?? null);
+        echo "\">
+                        <i class=\"fa-solid fa-cart-shopping\"></i> ";
+        // line 239
+        echo ($context["text_shopping_cart"] ?? null);
+        echo "
+                      </a>
+                    </li>
+                    <li class=\"dropdown-item-custom\">
+                      <a href=\"";
+        // line 243
+        echo ($context["checkout"] ?? null);
+        echo "\" title=\"";
+        echo ($context["text_checkout"] ?? null);
+        echo "\">
+                        <i class=\"fa-solid fa-share\"></i> ";
+        // line 244
+        echo ($context["text_checkout"] ?? null);
+        echo "
+                      </a>
+                    </li>
+          
+                    <li class=\"dropdown-item-custom\"><strong>";
+        // line 248
+        echo ($context["text_account"] ?? null);
+        echo "</strong></li>
+          
+                    ";
+        // line 250
+        if ( !($context["logged"] ?? null)) {
+            // line 251
+            echo "                    <li class=\"dropdown-item-custom\"><a href=\"";
+            echo ($context["register"] ?? null);
+            echo "\">";
+            echo ($context["text_register"] ?? null);
+            echo "</a></li>
+                    <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 252
+            echo ($context["login"] ?? null);
+            echo "\">";
+            echo ($context["text_login"] ?? null);
+            echo "</a></li>
+                    ";
+        } else {
+            // line 254
+            echo "                    <li class=\"dropdown-item-custom\"><a href=\"";
+            echo ($context["account"] ?? null);
+            echo "\">";
+            echo ($context["text_account"] ?? null);
+            echo "</a></li>
+                    <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 255
+            echo ($context["order"] ?? null);
+            echo "\">";
+            echo ($context["text_order"] ?? null);
+            echo "</a></li>
+                    <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 256
+            echo ($context["transaction"] ?? null);
+            echo "\">";
+            echo ($context["text_transaction"] ?? null);
+            echo "</a></li>
+                    <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 257
+            echo ($context["download"] ?? null);
+            echo "\">";
+            echo ($context["text_download"] ?? null);
+            echo "</a></li>
+                    <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 258
+            echo ($context["logout"] ?? null);
+            echo "\">";
+            echo ($context["text_logout"] ?? null);
+            echo "</a></li>
+                    ";
+        }
+        // line 260
+        echo "                  </ul>
+                </div>
+              </div>
+              
+            </div>
           </div>
-    
+          </div>
         </div>
       </header>
     
       <!-- MAIN -->
-      <main>
+      <main class=\"main\">
         ";
-        // line 197
+        // line 272
         echo ($context["menu"] ?? null);
         echo "
+
+
     
       <!-- Script for Dropdown -->
       <script>
@@ -442,6 +519,8 @@ class __TwigTemplate_d83107e89fdca349e26a277f5ba0413f extends Template
           }
         });
       </script>
+
+
     
     ";
     }
@@ -458,11 +537,11 @@ class __TwigTemplate_d83107e89fdca349e26a277f5ba0413f extends Template
 
     public function getDebugInfo()
     {
-        return array (  426 => 197,  406 => 180,  402 => 179,  398 => 177,  390 => 175,  380 => 172,  374 => 170,  372 => 169,  359 => 158,  352 => 156,  346 => 155,  340 => 154,  334 => 153,  327 => 152,  320 => 150,  313 => 149,  311 => 148,  306 => 146,  299 => 142,  293 => 141,  286 => 137,  280 => 136,  273 => 132,  267 => 131,  259 => 128,  254 => 126,  250 => 125,  165 => 42,  156 => 40,  151 => 39,  140 => 37,  135 => 36,  126 => 34,  121 => 33,  108 => 31,  104 => 30,  94 => 23,  90 => 22,  86 => 21,  82 => 20,  76 => 16,  70 => 14,  67 => 13,  61 => 11,  59 => 10,  55 => 9,  51 => 8,  40 => 2,  37 => 1,);
+        return array (  501 => 272,  487 => 260,  480 => 258,  474 => 257,  468 => 256,  462 => 255,  455 => 254,  448 => 252,  441 => 251,  439 => 250,  434 => 248,  427 => 244,  421 => 243,  414 => 239,  408 => 238,  401 => 234,  395 => 233,  387 => 230,  382 => 228,  378 => 227,  367 => 219,  358 => 213,  354 => 211,  346 => 209,  336 => 206,  330 => 204,  328 => 203,  165 => 42,  156 => 40,  151 => 39,  140 => 37,  135 => 36,  126 => 34,  121 => 33,  108 => 31,  104 => 30,  94 => 23,  90 => 22,  86 => 21,  82 => 20,  76 => 16,  70 => 14,  67 => 13,  61 => 11,  59 => 10,  55 => 9,  51 => 8,  40 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("", "catalog/view/template/common/header.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\catalog\\view\\template\\common\\header.twig");
+        return new Source("", "catalog/view/template/common/header.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\catalog\\view\\template\\common\\header.twig");
     }
 }

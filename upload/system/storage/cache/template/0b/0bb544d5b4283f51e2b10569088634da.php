@@ -392,6 +392,6 @@ class __TwigTemplate_f3703c69889660f35d2d1ea5dc171bd0 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "catalog/view/template/product/search.twig", "C:\\xampp\\htdocs\\MyOpenCart\\Demo\\upload\\catalog\\view\\template\\product\\search.twig");
+        return new Source("", "catalog/view/template/product/search.twig", "C:\\xampp\\htdocs\\BaseeraTraders\\BaseeraTraders-project1-\\upload\\catalog\\view\\template\\product\\search.twig");
     }
 }
