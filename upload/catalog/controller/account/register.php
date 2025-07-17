@@ -62,8 +62,19 @@ class Register extends \Opencart\System\Engine\Controller {
 			}
 		}
 
-		$data['customer_group_id'] = $this->config->get('config_customer_group_id');
-
+		// $data['customer_group_id'] = $this->config->get('config_customer_group_id');
+		if (isset($this->request->get['group'])) {
+			if ($this->request->get['group'] == 'retailer') {
+				$data['customer_group_id'] = 2; // Replace 2 with your actual Retailer group ID
+			} elseif ($this->request->get['group'] == 'customer') {
+				$data['customer_group_id'] = 1; // Replace 1 with your actual Customer group ID
+			}
+		} elseif (isset($this->request->post['customer_group_id'])) {
+			$data['customer_group_id'] = (int)$this->request->post['customer_group_id'];
+		} else {
+			$data['customer_group_id'] = $this->config->get('config_customer_group_id');
+		}
+		
 		// Custom Fields
 		$data['custom_fields'] = [];
 

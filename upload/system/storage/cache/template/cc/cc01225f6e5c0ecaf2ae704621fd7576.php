@@ -163,366 +163,375 @@ class __TwigTemplate_d83107e89fdca349e26a277f5ba0413f extends Template
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 42
         echo "  <style>
-/* Align toggle to top-right */
-.nav-toggle-container {
-  display: flex;
-  padding: 0.5rem 1rem;
-  position: relative;
-  flex-flow: row-reverse;
-  z-index: 1001;
-}
+    /* Align toggle to top-right */
+    .nav-toggle-container {
+      display: flex;
+      padding: 0.5rem 1rem;
+      position: relative;
+      flex-flow: row-reverse;
+    }
 
-.dropdown-toggle-custom {
-  background: none;
-  border: none;
-  font-size: 14px;
-  font-weight: 600;
-  color: #444;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 10px;
-  transition: background 0.3s ease;
-  border-radius: 6px;
-}
+    .dropdown-toggle-custom {
+      background: none;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: #444;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px;
+      transition: background 0.3s ease;
+      border-radius: 6px;
+    }
 
-.dropdown-toggle-custom:focus,
-.dropdown-toggle-custom:hover {
-  background-color: #f0f0f0;
-}
+    .dropdown-toggle-custom:focus,
+    .dropdown-toggle-custom:hover {
+      background-color: #f0f0f0;
+    }
 
-/* Dropdown Menu Styling */
-.custom-dropdown-nav {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 1rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  min-width: 220px;
-  padding: 8px 0;
-  z-index: 1000;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
-  pointer-events: none;
-}
+    /* Dropdown Menu Styling */
+    .custom-dropdown-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 1rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      min-width: 220px;
+      padding: 8px 0;
+      z-index: 1000;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
 
-.custom-dropdown-nav.show {
-  display: block;
-  transform: translateY(10px);
-  opacity: 1;
-  pointer-events: auto;
-}
+    .custom-dropdown-nav.show {
+      display: block;
+      transform: translateY(10px);
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-.dropdown-item-custom {
-  padding: 10px 18px;
-  font-size: 14px;
-  color: #333;
-  white-space: nowrap;
-  transition: background 0.2s ease;
-}
+    .dropdown-item-custom {
+      padding: 10px 18px;
+      font-size: 14px;
+      color: #333;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
 
-.dropdown-item-custom:hover {
-  background-color: #f7f7f7;
-}
+    .dropdown-item-custom:hover {
+      background-color: #f7f7f7;
+    }
 
-.dropdown-item-custom a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
+    .dropdown-item-custom a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
 
-/* Utility */
-.top-all {
-  display: flex;
-  justify-content: space-between;
-}
+    /* Utility */
+    .top-all {
+      display: flex;
+      justify-content: space-between;
+    }
 
-#navToggleBtn {
-  min-width: fit-content;
-  padding: 20px;
-}
+    #navToggleBtn {
+      min-width: fit-content;
+      padding: 20px;
+    }
 
-/* Responsive Improvements */
-@media (max-width: 768px) {
-  .custom-dropdown-nav {
-    right: 0.5rem;
-    min-width: 180px;
-    border-radius: 10px;
-  }
+    /* Responsive Improvements */
+    @media (max-width: 768px) {
+      .custom-dropdown-nav {
+        right: 0.5rem;
+        min-width: 180px;
+        border-radius: 10px;
+      }
 
-  .dropdown-toggle-custom {
-    font-size: 13px;
-    padding: 8px;
-  }
+      .dropdown-toggle-custom {
+        font-size: 13px;
+        padding: 8px;
+      }
 
-  .dropdown-item-custom {
-    padding: 10px 14px;
-    font-size: 13px;
-  }
+      .dropdown-item-custom {
+        padding: 10px 14px;
+        font-size: 13px;
+      }
 
-  #navToggleBtn {
-    padding: 16px;
-  }
-}
+      #navToggleBtn {
+        padding: 16px;
+      }
+    }
 
-@media (max-width: 480px) {
-  .custom-dropdown-nav {
-    right: 0.25rem;
-    min-width: 160px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  }
+    @media (max-width: 480px) {
+      .custom-dropdown-nav {
+        right: 0.25rem;
+        min-width: 160px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      }
 
-  .dropdown-toggle-custom {
-    font-size: 12px;
-    gap: 4px;
-  }
+      .dropdown-toggle-custom {
+        font-size: 12px;
+        gap: 4px;
+      }
 
-  .dropdown-item-custom {
-    font-size: 12px;
-    padding: 8px 12px;
-  }
-}
+      .dropdown-item-custom {
+        font-size: 12px;
+        padding: 8px 12px;
+      }
+    }
 
-@media screen and (max-width:576px) {
+    @media screen and (max-width:576px) {
 
-  .top-all {
-    display: block;
-  }
+      .top-all {
+        display: block;
+      }
 
-  .nav-toggle-container{
-    flex-flow: row;
-    justify-content: space-between;
-  }
-  
-}
+      .nav-toggle-container {
+        flex-flow: row;
+        justify-content: space-between;
+      }
 
-
+    }
   </style>
 </head>
 
-    <body>
-      <div id=\"alert\" class=\"toast-container position-fixed top-0 end-0 p-3\"></div>
+<body>
+  <div id=\"alert\" class=\"toast-container position-fixed top-0 end-0 p-3\"></div>
 
-      <!-- Dropdown Menu -->
-      <nav id=\"top\">
-        <div class=\"container position-relative\">
-         
-        </div>
-      </nav>
-    
-      <!-- HEADER -->
-      <header>
-        <div class=\"container py-3\">
-          
-          
-          
-          <div class=\"row align-items-center\">
-            <div class=\"top-all\">
-            <div class=\"col-md-3 col-lg-4\">
-              <div id=\"logo\">
-                ";
-        // line 203
+  <!-- Dropdown Menu -->
+  <nav id=\"top\">
+    <div class=\"container position-relative\">
+
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <div class=\"container py-3\">
+
+      <div class=\"row align-items-center\">
+        <div class=\"top-all\">
+          <div class=\"col-md-3 col-lg-4\">
+            <div id=\"logo\">
+              ";
+        // line 198
         if (($context["logo"] ?? null)) {
-            // line 204
-            echo "                <a href=\"";
+            // line 199
+            echo "              <a href=\"";
             echo ($context["home"] ?? null);
             echo "\">
-                  <h2>BASEERA TRADERS</h2>
-                  <!-- <img src=\"";
-            // line 206
+                <h2>BASEERA TRADERS</h2>
+                <!-- <img src=\"";
+            // line 201
             echo ($context["logo"] ?? null);
             echo "\" title=\"";
             echo ($context["name"] ?? null);
             echo "\" alt=\"";
             echo ($context["name"] ?? null);
             echo "\" class=\"img-fluid\" /> -->
-                </a>
-                ";
+              </a>
+              ";
         } else {
-            // line 209
-            echo "                <h1><a href=\"";
+            // line 204
+            echo "              <h1><a href=\"";
             echo ($context["home"] ?? null);
             echo "\">";
             echo ($context["name"] ?? null);
             echo "</a></h1>
-                ";
+              ";
         }
-        // line 211
-        echo "              </div>
-            </div>
-            <div class=\"col-md-5\">";
-        // line 213
+        // line 206
+        echo "            </div>
+          </div>
+          <div class=\"col-md-5\">";
+        // line 208
         echo ($context["search"] ?? null);
         echo "</div>
 
-            <!-- Toggle Button (Aligned to Right) -->
-            <div class=\"account-other\">
+          <!-- Toggle Button (Aligned to Right) -->
+          <div class=\"account-other\">
 
-              <div class=\"nav-toggle-container\">
-                <div id=\"header-cart\" class=\"col-md-4 col-lg-3 mb-2\">";
-        // line 219
+            <div class=\"nav-toggle-container\">
+              <div id=\"header-cart\" class=\"col-md-4 col-lg-3 mb-2\">";
+        // line 214
         echo ($context["cart"] ?? null);
         echo "</div>
-                <button id=\"navToggleBtn\" class=\"dropdown-toggle-custom\">
-                  <i class=\"fa-solid fa-user\"></i>
-                  <span class=\"d-none d-md-inline\">My Menu</span>
-                  <i class=\"fa-solid fa-caret-down\"></i>
-                </button>
-                <div id=\"navDropdown\" class=\"custom-dropdown-nav\">
-                  <ul class=\"list-unstyled mb-0\">
-                    <li class=\"dropdown-item-custom\">";
-        // line 227
+              <button id=\"navToggleBtn\" class=\"dropdown-toggle-custom\">
+                <i class=\"fa-solid fa-user\"></i>
+                <span class=\"d-none d-md-inline\">My Menu</span>
+                <i class=\"fa-solid fa-caret-down\"></i>
+              </button>
+              <div id=\"navDropdown\" class=\"custom-dropdown-nav\">
+                <ul class=\"list-unstyled mb-0\">
+                  ";
+        // line 222
+        if ((($context["customer_group_id"] ?? null) == 2)) {
+            // line 223
+            echo "                  <li class=\"dropdown-item-custom\"><strong>Welcome Retailer!</strong></li>
+                  ";
+        } elseif ((        // line 224
+($context["customer_group_id"] ?? null) == 1)) {
+            // line 225
+            echo "                  <li class=\"dropdown-item-custom\"><strong>Welcome Customer!</strong></li>
+                  ";
+        } else {
+            // line 227
+            echo "                  <li class=\"dropdown-item-custom\"><strong>Welcome Guest!</strong></li>
+                  ";
+        }
+        // line 229
+        echo "                  
+                  <li class=\"dropdown-item-custom\">";
+        // line 230
         echo ($context["currency"] ?? null);
         echo "</li>
-                    <li class=\"dropdown-item-custom\">";
-        // line 228
+                  <!-- <li class=\"dropdown-item-custom\">";
+        // line 231
         echo ($context["language"] ?? null);
-        echo "</li>
-                    <li class=\"dropdown-item-custom\">
-                      <a href=\"";
-        // line 230
+        echo "</li> -->
+                  <li class=\"dropdown-item-custom\">
+                    <a href=\"";
+        // line 233
         echo ($context["contact"] ?? null);
         echo "\"><i class=\"fa-solid fa-phone\"></i> ";
         echo ($context["telephone"] ?? null);
         echo "</a>
-                    </li>
-                    <li class=\"dropdown-item-custom\">
-                      <a href=\"";
-        // line 233
+                  </li>
+                  <li class=\"dropdown-item-custom\">
+                    <a href=\"";
+        // line 236
         echo ($context["wishlist"] ?? null);
         echo "\" id=\"wishlist-total\" title=\"";
         echo ($context["text_wishlist"] ?? null);
         echo "\">
-                        <i class=\"fa-solid fa-heart\"></i> ";
-        // line 234
+                      <i class=\"fa-solid fa-heart\"></i> ";
+        // line 237
         echo ($context["text_wishlist"] ?? null);
         echo "
-                      </a>
-                    </li>
-                    <li class=\"dropdown-item-custom\">
-                      <a href=\"";
-        // line 238
+                    </a>
+                  </li>
+                  <li class=\"dropdown-item-custom\">
+                    <a href=\"";
+        // line 241
         echo ($context["shopping_cart"] ?? null);
         echo "\" title=\"";
         echo ($context["text_shopping_cart"] ?? null);
         echo "\">
-                        <i class=\"fa-solid fa-cart-shopping\"></i> ";
-        // line 239
+                      <i class=\"fa-solid fa-cart-shopping\"></i> ";
+        // line 242
         echo ($context["text_shopping_cart"] ?? null);
         echo "
-                      </a>
-                    </li>
-                    <li class=\"dropdown-item-custom\">
-                      <a href=\"";
-        // line 243
+                    </a>
+                  </li>
+                  <li class=\"dropdown-item-custom\">
+                    <a href=\"";
+        // line 246
         echo ($context["checkout"] ?? null);
         echo "\" title=\"";
         echo ($context["text_checkout"] ?? null);
         echo "\">
-                        <i class=\"fa-solid fa-share\"></i> ";
-        // line 244
+                      <i class=\"fa-solid fa-share\"></i> ";
+        // line 247
         echo ($context["text_checkout"] ?? null);
         echo "
-                      </a>
-                    </li>
-          
-                    <li class=\"dropdown-item-custom\"><strong>";
-        // line 248
+                    </a>
+                  </li>
+
+                  <li class=\"dropdown-item-custom\"><strong>";
+        // line 251
         echo ($context["text_account"] ?? null);
         echo "</strong></li>
-          
-                    ";
-        // line 250
+
+                  ";
+        // line 253
         if ( !($context["logged"] ?? null)) {
-            // line 251
-            echo "                    <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 254
+            echo "                  <li class=\"dropdown-item-custom\"><a href=\"";
             echo ($context["register"] ?? null);
             echo "\">";
             echo ($context["text_register"] ?? null);
             echo "</a></li>
-                    <li class=\"dropdown-item-custom\"><a href=\"";
-            // line 252
+                  <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 255
             echo ($context["login"] ?? null);
             echo "\">";
             echo ($context["text_login"] ?? null);
             echo "</a></li>
-                    ";
+                  ";
         } else {
-            // line 254
-            echo "                    <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 257
+            echo "                  <li class=\"dropdown-item-custom\"><a href=\"";
             echo ($context["account"] ?? null);
             echo "\">";
             echo ($context["text_account"] ?? null);
             echo "</a></li>
-                    <li class=\"dropdown-item-custom\"><a href=\"";
-            // line 255
+                  <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 258
             echo ($context["order"] ?? null);
             echo "\">";
             echo ($context["text_order"] ?? null);
             echo "</a></li>
-                    <li class=\"dropdown-item-custom\"><a href=\"";
-            // line 256
+                  <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 259
             echo ($context["transaction"] ?? null);
             echo "\">";
             echo ($context["text_transaction"] ?? null);
             echo "</a></li>
-                    <li class=\"dropdown-item-custom\"><a href=\"";
-            // line 257
+                  <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 260
             echo ($context["download"] ?? null);
             echo "\">";
             echo ($context["text_download"] ?? null);
             echo "</a></li>
-                    <li class=\"dropdown-item-custom\"><a href=\"";
-            // line 258
+                  <li class=\"dropdown-item-custom\"><a href=\"";
+            // line 261
             echo ($context["logout"] ?? null);
             echo "\">";
             echo ($context["text_logout"] ?? null);
             echo "</a></li>
-                    ";
+                  ";
         }
-        // line 260
-        echo "                  </ul>
-                </div>
+        // line 263
+        echo "                </ul>
               </div>
-              
             </div>
-          </div>
+
           </div>
         </div>
-      </header>
-    
-      <!-- MAIN -->
-      <main class=\"main\">
-        ";
-        // line 272
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class=\"main\">
+    ";
+        // line 275
         echo ($context["menu"] ?? null);
         echo "
 
 
-    
-      <!-- Script for Dropdown -->
-      <script>
-        const toggleBtn = document.getElementById('navToggleBtn');
-        const dropdown = document.getElementById('navDropdown');
-    
-        toggleBtn.addEventListener('click', function (e) {
-          e.stopPropagation();
-          dropdown.classList.toggle('show');
-        });
-    
-        document.addEventListener('click', function (e) {
-          if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
-            dropdown.classList.remove('show');
-          }
-        });
-      </script>
 
+    <!-- Script for Dropdown -->
+    <script>
+      const toggleBtn = document.getElementById('navToggleBtn');
+      const dropdown = document.getElementById('navDropdown');
 
-    
-    ";
+      toggleBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('show');
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
+          dropdown.classList.remove('show');
+        }
+      });
+    </script>";
     }
 
     public function getTemplateName()
@@ -537,7 +546,7 @@ class __TwigTemplate_d83107e89fdca349e26a277f5ba0413f extends Template
 
     public function getDebugInfo()
     {
-        return array (  501 => 272,  487 => 260,  480 => 258,  474 => 257,  468 => 256,  462 => 255,  455 => 254,  448 => 252,  441 => 251,  439 => 250,  434 => 248,  427 => 244,  421 => 243,  414 => 239,  408 => 238,  401 => 234,  395 => 233,  387 => 230,  382 => 228,  378 => 227,  367 => 219,  358 => 213,  354 => 211,  346 => 209,  336 => 206,  330 => 204,  328 => 203,  165 => 42,  156 => 40,  151 => 39,  140 => 37,  135 => 36,  126 => 34,  121 => 33,  108 => 31,  104 => 30,  94 => 23,  90 => 22,  86 => 21,  82 => 20,  76 => 16,  70 => 14,  67 => 13,  61 => 11,  59 => 10,  55 => 9,  51 => 8,  40 => 2,  37 => 1,);
+        return array (  514 => 275,  500 => 263,  493 => 261,  487 => 260,  481 => 259,  475 => 258,  468 => 257,  461 => 255,  454 => 254,  452 => 253,  447 => 251,  440 => 247,  434 => 246,  427 => 242,  421 => 241,  414 => 237,  408 => 236,  400 => 233,  395 => 231,  391 => 230,  388 => 229,  384 => 227,  380 => 225,  378 => 224,  375 => 223,  373 => 222,  362 => 214,  353 => 208,  349 => 206,  341 => 204,  331 => 201,  325 => 199,  323 => 198,  165 => 42,  156 => 40,  151 => 39,  140 => 37,  135 => 36,  126 => 34,  121 => 33,  108 => 31,  104 => 30,  94 => 23,  90 => 22,  86 => 21,  82 => 20,  76 => 16,  70 => 14,  67 => 13,  61 => 11,  59 => 10,  55 => 9,  51 => 8,  40 => 2,  37 => 1,);
     }
 
     public function getSourceContext()

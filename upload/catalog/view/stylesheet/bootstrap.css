@@ -674,6 +674,7 @@ progress {
 .col {
   flex: 1 0 0%;
 }
+
 .row-cols-auto > * {
   flex: 0 0 auto;
   width: auto;
@@ -1793,6 +1794,10 @@ progress {
   }
 }
 @media (max-width: 767.98px) {
+  .col{
+    /* display: block; */
+    flex: 0 0 100%;
+  }
   .table-responsive-md {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -3810,6 +3815,7 @@ textarea.form-control-lg {
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
 }
+
 .card > hr {
   margin-right: 0;
   margin-left: 0;
@@ -6487,7 +6493,7 @@ textarea.form-control-lg {
   display: inline-flex !important;
 }
 .d-none {
-  display: none !important;
+  /* display: none !important; */
 }
 .shadow {
   box-shadow: var(--bs-box-shadow) !important;

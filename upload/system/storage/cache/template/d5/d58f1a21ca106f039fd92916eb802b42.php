@@ -34,102 +34,110 @@ class __TwigTemplate_7a98c5e227ec48b4ee0d7963cc544fe0 extends Template
     {
         $macros = $this->macros;
         // line 1
-        echo "
-
-
-";
-        // line 4
         if (($context["categories"] ?? null)) {
-            // line 5
-            echo "  <div class=\"container\">
-    <nav id=\"menu\" class=\"navbar navbar-expand-lg navbar-light bg-primary\">
-      <div id=\"category\" class=\"d-block d-sm-block d-lg-none\">";
-            // line 7
+            // line 2
+            echo "<style>
+  .group-message {
+    font-weight: bold;
+    color: #ff6600;
+  }
+</style>
+<div class=\"container\">
+  <nav id=\"menu\" class=\"navbar navbar-expand-lg navbar-light bg-primary\">
+    <div id=\"category\" class=\"d-block d-sm-block d-lg-none\">";
+            // line 10
             echo ($context["text_category"] ?? null);
             echo "</div>
-      <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#narbar-menu\"><i class=\"fa-solid fa-bars\"></i></button>
-      <div class=\"collapse navbar-collapse\" id=\"narbar-menu\">
-        <ul class=\"nav navbar-nav\">
-          <li class=\"nav-item\"><a href=\"index.php?route=common/home\" class=\"nav-link\">Home</a></li>
-          ";
-            // line 12
+    <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#narbar-menu\"><i
+        class=\"fa-solid fa-bars\"></i></button>
+    <div class=\"collapse navbar-collapse\" id=\"narbar-menu\">
+      <ul class=\"nav navbar-nav\">
+
+        <li class=\"nav-item\"><a href=\"index.php?route=common/home\" class=\"nav-link\">Home</a></li>
+
+
+        ";
+            // line 19
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["categories"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 13
-                echo "            ";
-                if (twig_get_attribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 13)) {
-                    // line 14
-                    echo "              <li class=\"nav-item dropdown\"><a href=\"";
-                    echo twig_get_attribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 14);
-                    echo "\" class=\"nav-link dropdown-toggle\" data-bs-toggle=\"dropdown\">";
-                    echo twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 14);
+                // line 20
+                echo "        ";
+                if (twig_get_attribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 20)) {
+                    // line 21
+                    echo "        <li class=\"nav-item dropdown\"><a href=\"";
+                    echo twig_get_attribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 21);
+                    echo "\" class=\"nav-link dropdown-toggle\"
+            data-bs-toggle=\"dropdown\">";
+                    // line 22
+                    echo twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 22);
                     echo "</a>
-                <div class=\"dropdown-menu\">
-                  <div class=\"dropdown-inner\">
-                    ";
-                    // line 17
+          <div class=\"dropdown-menu\">
+            <div class=\"dropdown-inner\">
+              ";
+                    // line 25
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_array_batch(twig_get_attribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 17), (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 17)) / twig_round(twig_get_attribute($this->env, $this->source, $context["category"], "column", [], "any", false, false, false, 17), 1, "ceil"))));
+                    $context['_seq'] = twig_ensure_traversable(twig_array_batch(twig_get_attribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 25), (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "children", [], "any", false, false, false, 25)) / twig_round(twig_get_attribute($this->env, $this->source, $context["category"], "column", [], "any", false, false, false, 25), 1, "ceil"))));
                     foreach ($context['_seq'] as $context["_key"] => $context["children"]) {
-                        // line 18
-                        echo "                      <ul class=\"list-unstyled\">
-                        ";
-                        // line 19
+                        // line 26
+                        echo "              <ul class=\"list-unstyled\">
+                ";
+                        // line 27
                         $context['_parent'] = $context;
                         $context['_seq'] = twig_ensure_traversable($context["children"]);
                         foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
-                            // line 20
-                            echo "                          <li><a href=\"";
-                            echo twig_get_attribute($this->env, $this->source, $context["child"], "href", [], "any", false, false, false, 20);
+                            // line 28
+                            echo "                <li><a href=\"";
+                            echo twig_get_attribute($this->env, $this->source, $context["child"], "href", [], "any", false, false, false, 28);
                             echo "\" class=\"nav-link\">";
-                            echo twig_get_attribute($this->env, $this->source, $context["child"], "name", [], "any", false, false, false, 20);
+                            echo twig_get_attribute($this->env, $this->source, $context["child"], "name", [], "any", false, false, false, 28);
                             echo "</a></li>
-                        ";
+                ";
                         }
                         $_parent = $context['_parent'];
                         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['child'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 22
-                        echo "                      </ul>
-                    ";
+                        // line 30
+                        echo "              </ul>
+              ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['children'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 24
-                    echo "                  </div>
-                  <a href=\"";
-                    // line 25
-                    echo twig_get_attribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 25);
+                    // line 32
+                    echo "          
+            </div>
+            <a href=\"";
+                    // line 34
+                    echo twig_get_attribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 34);
                     echo "\" class=\"see-all\">";
                     echo ($context["text_all"] ?? null);
                     echo " ";
-                    echo twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 25);
+                    echo twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 34);
                     echo "</a>
-                </div>
-              </li>
-              ";
+          </div>
+        </li>
+        ";
                 } else {
-                    // line 29
-                    echo "              <li class=\"nav-item\"><a href=\"";
-                    echo twig_get_attribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 29);
+                    // line 38
+                    echo "        <li class=\"nav-item\"><a href=\"";
+                    echo twig_get_attribute($this->env, $this->source, $context["category"], "href", [], "any", false, false, false, 38);
                     echo "\" class=\"nav-link\">";
-                    echo twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 29);
+                    echo twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 38);
                     echo "</a></li>
-            ";
+        ";
                 }
-                // line 31
-                echo "          ";
+                // line 40
+                echo "        ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 32
-            echo "        </ul>
-      </div>
-    </nav>
-  </div>
+            // line 41
+            echo "      </ul>
+    </div>
+  </nav>
+</div>
 ";
         }
     }
@@ -146,7 +154,7 @@ class __TwigTemplate_7a98c5e227ec48b4ee0d7963cc544fe0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  129 => 32,  123 => 31,  115 => 29,  104 => 25,  101 => 24,  94 => 22,  83 => 20,  79 => 19,  76 => 18,  72 => 17,  63 => 14,  60 => 13,  56 => 12,  48 => 7,  44 => 5,  42 => 4,  37 => 1,);
+        return array (  137 => 41,  131 => 40,  123 => 38,  112 => 34,  108 => 32,  101 => 30,  90 => 28,  86 => 27,  83 => 26,  79 => 25,  73 => 22,  68 => 21,  65 => 20,  61 => 19,  49 => 10,  39 => 2,  37 => 1,);
     }
 
     public function getSourceContext()

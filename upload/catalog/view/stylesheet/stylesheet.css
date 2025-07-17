@@ -85,6 +85,9 @@ a {
 a:hover {
   text-decoration: none;
 }
+.login-hanger{
+  color: var(--black);
+}
 /* Chrome border line */
 button:focus {
   outline: none !important;
@@ -435,7 +438,7 @@ footer a {
 }
 /* content */
 #content {
-  /* min-height: 600px; */
+  min-height: 200px;
 }
 /* footer */
 footer {

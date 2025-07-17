@@ -1,7 +1,25 @@
 {% if modules %}
-<aside id="column-right" class="col-3 d-none d-md-block">
+<aside id="column-right" class="custom-column-right">
   {% for module in modules %}
-  {{ module }}
+    {{ module }}
   {% endfor %}
 </aside>
 {% endif %}
+
+
+<style>
+  /* Custom responsive styles for the right column */
+.custom-column-right {
+  width: 100%;
+  padding: 10px;
+}
+
+/* On tablets and larger screens, make it a sidebar */
+@media (min-width: 768px) {
+  .custom-column-right {
+    width: 25%;
+    float: right;
+  }
+}
+
+</style>

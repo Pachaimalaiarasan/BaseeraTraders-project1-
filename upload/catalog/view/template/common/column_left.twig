@@ -1,7 +1,22 @@
 {% if modules %}
-<aside id="column-left" class="col-3 d-none d-md-block">
+<aside id="column-left" class="custom-column-left">
   {% for module in modules %}
-  {{ module }}
+    {{ module }}
   {% endfor %}
 </aside>
 {% endif %}
+
+<style>
+  .custom-column-left {
+  width: 100%;
+  padding: 10px;
+}
+
+/* On tablets and larger screens, use a sidebar layout */
+@media (min-width: 768px) {
+  .custom-column-left {
+    width: 25%;
+    float: left;
+  }
+}
+</style>

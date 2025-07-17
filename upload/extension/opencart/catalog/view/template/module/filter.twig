@@ -1,32 +1,190 @@
-<div class="card">
-  <div class="card-header"><i class="fa-solid fa-filter"></i> {{ heading_title }}</div>
-  <div class="list-group list-group-flush">
-    {% for filter_group in filter_groups %}
-      <a class="list-group-item">{{ filter_group.name }}</a>
-      <div class="list-group-item">
-        <div id="filter-group-{{ filter_group.filter_group_id }}">
+<style>
+  #refine-filter-box {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    max-width: 100%;
+    background: #fff;
+    margin: 10px 0;
+  }
+
+  .refine-header {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 20px;
+    text-align: center;
+    gap: 8px;
+    cursor: default;
+  }
+
+  .refine-header i {
+    font-size: 16px;
+  }
+
+  .refine-body {
+    display: block;
+    padding: 0;
+  }
+
+  .refine-accordion .refine-group {
+    border-top: 1px solid #eee;
+  }
+
+  .refine-toggle {
+    width: 100%;
+    background: #ffffff;
+    
+    color: rgb(0, 0, 0);
+    padding: 10px 14px;
+    font-size: 16px;
+    /* border-radius: 20px; */
+    border: none;
+    border-width: 90%;
+    position: relative;
+    font-weight: bold;
+    margin-top: 2%;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .refine-toggle::before{
+    content: '';
+  position: absolute;
+  width: 70%; /* line length */
+  height: 2px;
+  background: black;
+  bottom: 0px;
+  left: 5%;
+  }
+
+  .refine-content {
+    display: none;
+    padding: 10px 16px;
+    background: #f9f9f9;
+  }
+
+  .refine-content.open {
+    display: block;
+  }
+
+  .refine-checkbox {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+
+  .refine-footer {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .refine-footer button {
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .refine-footer button i {
+    margin-right: 5px;
+  }
+
+  /* Responsive for mobile */
+  @media (max-width: 768px) {
+    .refine-header {
+      cursor: pointer;
+    }
+
+    .refine-body {
+      display: none;
+    }
+
+    .refine-body.show {
+      display: block;
+    }
+    .refine-accordion{
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+</style>
+
+
+<div id="refine-filter-box">
+  <!-- Toggle Heading (acts like a button on mobile) -->
+  <div class="refine-header mobile-toggle">
+    <i class="fa-solid fa-filter"></i>
+    <span>Filters</span>
+  </div>
+
+  <!-- Filter Body -->
+  <div class="refine-body">
+    <div class="refine-accordion">
+      {% for filter_group in filter_groups %}
+      <div class="refine-group">
+        <button class="refine-toggle" data-target="#refine-{{ filter_group.filter_group_id }}">
+          {{ filter_group.name }} <span class="arrow">&#9660;</span>
+        </button>
+        <div class="refine-content" id="refine-{{ filter_group.filter_group_id }}">
           {% for filter in filter_group.filter %}
-            <div class="form-check">
-              <input type="checkbox" name="filter[]" value="{{ filter.filter_id }}" id="input-filter-{{ filter.filter_id }}" class="form-check-input"{% if filter.filter_id in filter_category %} checked{% endif %}/>
-              <label for="input-filter-{{ filter.filter_id }}" class="form-check-label">{{ filter.name }}</label>
-            </div>
+          <label class="refine-checkbox">
+            <input type="checkbox" name="filter[]" value="{{ filter.filter_id }}"
+              {% if filter.filter_id in filter_category %}checked{% endif %}>
+            {{ filter.name }}
+          </label>
           {% endfor %}
         </div>
       </div>
-    {% endfor %}
-  </div>
-  <div class="card-footer text-right">
-    <button type="button" id="button-filter" class="btn btn-primary"><i class="fa-solid fa-filter"></i> {{ button_filter }}</button>
+      {% endfor %}
+    </div>
+    <div class="refine-footer">
+      <button type="button" id="button-filter">
+        <i class="fa-solid fa-filter"></i> {{ button_filter }}
+      </button>
+    </div>
   </div>
 </div>
-<script type="text/javascript"><!--
-$('#button-filter').on('click', function () {
-    filter = [];
 
-    $('input[name^=\'filter\']:checked').each(function (element) {
-        filter.push(this.value);
+<script>
+  // Accordion toggle per group
+  document.querySelectorAll('.refine-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const target = document.querySelector(button.getAttribute('data-target'));
+      target.classList.toggle('open');
     });
+  });
 
+  // Mobile toggle (show/hide refine-body)
+  const refineHeader = document.querySelector('.refine-header');
+  const refineBody = document.querySelector('.refine-body');
+
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
+  refineHeader.addEventListener('click', () => {
+    if (isMobile()) {
+      refineBody.classList.toggle('show');
+    }
+  });
+
+  // Filter button action
+  document.getElementById('button-filter').addEventListener('click', function () {
+    const filter = [];
+    document.querySelectorAll('input[name^="filter"]:checked').forEach(el => {
+      filter.push(el.value);
+    });
     location = '{{ action }}&filter=' + filter.join(',');
-});
-//--></script>
+  });
+</script>

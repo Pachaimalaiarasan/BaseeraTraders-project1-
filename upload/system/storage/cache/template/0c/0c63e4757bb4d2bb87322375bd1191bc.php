@@ -36,14 +36,14 @@ class __TwigTemplate_89ac5ca6ac5e04ca691162de9efd95ed extends Template
         // line 1
         if (($context["modules"] ?? null)) {
             // line 2
-            echo "<aside id=\"column-left\" class=\"col-3 d-none d-md-block\">
+            echo "<aside id=\"column-left\" class=\"custom-column-left\">
   ";
             // line 3
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["modules"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["module"]) {
                 // line 4
-                echo "  ";
+                echo "    ";
                 echo $context["module"];
                 echo "
   ";
@@ -55,6 +55,22 @@ class __TwigTemplate_89ac5ca6ac5e04ca691162de9efd95ed extends Template
             echo "</aside>
 ";
         }
+        // line 8
+        echo "
+<style>
+  .custom-column-left {
+  width: 100%;
+  padding: 10px;
+}
+
+/* On tablets and larger screens, use a sidebar layout */
+@media (min-width: 768px) {
+  .custom-column-left {
+    width: 25%;
+    float: left;
+  }
+}
+</style>";
     }
 
     public function getTemplateName()
@@ -69,7 +85,7 @@ class __TwigTemplate_89ac5ca6ac5e04ca691162de9efd95ed extends Template
 
     public function getDebugInfo()
     {
-        return array (  55 => 6,  46 => 4,  42 => 3,  39 => 2,  37 => 1,);
+        return array (  59 => 8,  55 => 6,  46 => 4,  42 => 3,  39 => 2,  37 => 1,);
     }
 
     public function getSourceContext()

@@ -53,8 +53,24 @@ class Product extends \Opencart\System\Engine\Model {
 	 * @return array
 	 */
 	public function getProducts(array $data = []): array {
-		$sql = "SELECT DISTINCT *, pd.`name`, `p`.`image`, " . $this->statement['discount'] . ", " . $this->statement['special'] . ", " . $this->statement['reward'] . ", " . $this->statement['review'];
-
+		// $sql = "SELECT DISTINCT p.product_id , pd.`name`, `p`.`image`, " . $this->statement['discount'] . ", " . $this->statement['special'] . ", " . $this->statement['reward'] . ", " . $this->statement['review'];
+		// $sql = "SELECT DISTINCT p.product_id, p.price, p.tax_class_id, pd.`name`, p.`image`, " . $this->statement['discount'] . ", " . $this->statement['special'] . ", " . $this->statement['reward'] . ", " . $this->statement['review'];
+		$sql = "SELECT DISTINCT 
+		p.product_id, 
+		p.price, 
+		p.tax_class_id, 
+		p.minimum, 
+		p.image, 
+		p.quantity, 
+		p.model, 
+		pd.name, 
+		pd.description, 
+		IFNULL((SELECT AVG(r.rating) FROM " . DB_PREFIX . "review r WHERE r.product_id = p.product_id AND r.status = '1'), 0) AS rating, 
+		" . $this->statement['discount'] . ", 
+		" . $this->statement['special'] . ", 
+		" . $this->statement['reward'] . ", 
+		" . $this->statement['review'];
+	
 		if (!empty($data['filter_category_id'])) {
 			$sql .= " FROM `" . DB_PREFIX . "category_to_store` `c2s`";
 
